@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://cey7q2jvmo56w"]
+
+[ext_resource type="Script" path="res://navbar.gd" id="1_8w1nv"]
+[ext_resource type="Texture2D" uid="uid://6dea1mjsj6lr" path="res://assets/Bar.png" id="1_hev8k"]
+[ext_resource type="Texture2D" uid="uid://dqt4np14yqbm0" path="res://assets/Butts/HomeButt.png" id="2_kxqj0"]
+[ext_resource type="Texture2D" uid="uid://dp6bp33k85yjt" path="res://assets/Butts/ShopButt.png" id="3_vq63n"]
+[ext_resource type="Texture2D" uid="uid://blkyjipfv8uqc" path="res://assets/Butts/ClipButt.png" id="4_a2jsf"]
+[ext_resource type="Texture2D" uid="uid://b3foaq3bhv1o3" path="res://assets/Butts/StarButt.png" id="5_5dlys"]
+[ext_resource type="Texture2D" uid="uid://b2kgoyir06sdj" path="res://assets/Butts/HeartButt.png" id="6_pc3wd"]
+
+[node name="Navigation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8w1nv")
+
+[node name="BottomBar" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -240.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_hev8k")
+
+[node name="ButtonContainer" type="HBoxContainer" parent="BottomBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 35.0
+offset_right = -60.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="HomeButton" type="TextureButton" parent="BottomBar/ButtonContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_kxqj0")
+stretch_mode = 0
+
+[node name="ShopButton" type="TextureButton" parent="BottomBar/ButtonContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_vq63n")
+stretch_mode = 0
+
+[node name="QuestsButton" type="TextureButton" parent="BottomBar/ButtonContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_a2jsf")
+stretch_mode = 0
+
+[node name="ActivitiesButton" type="TextureButton" parent="BottomBar/ButtonContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_5dlys")
+stretch_mode = 0
+
+[node name="FriendsButton" type="TextureButton" parent="BottomBar/ButtonContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_pc3wd")
+stretch_mode = 0
