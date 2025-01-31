@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://li3lopwls62d"]
+[gd_scene load_steps=12 format=3 uid="uid://li3lopwls62d"]
 
 [ext_resource type="Texture2D" uid="uid://b2csiiae3207" path="res://assets/hud2.png" id="1_7vtjo"]
 [ext_resource type="Texture2D" uid="uid://6dea1mjsj6lr" path="res://assets/Bar.png" id="2_2nmig"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://b3foaq3bhv1o3" path="res://assets/Butts/StarButt.png" id="6_ji465"]
 [ext_resource type="Texture2D" uid="uid://b2kgoyir06sdj" path="res://assets/Butts/HeartButt.png" id="7_e886b"]
 [ext_resource type="Texture2D" uid="uid://stfipv7cit6i" path="res://assets/middle.png" id="8_v73wf"]
+[ext_resource type="Texture2D" uid="uid://bg66jmbo36xsf" path="res://assets/addGoalBG.png" id="9_qhtfg"]
 [ext_resource type="PackedScene" uid="uid://cey7q2jvmo56w" path="res://navbar.tscn" id="9_yorl5"]
+[ext_resource type="Texture2D" uid="uid://brxqinheg6b1h" path="res://assets/Butts/PlusButt.png" id="10_dvpbc"]
 
 [node name="Home" type="Control"]
 layout_mode = 3
@@ -53,6 +55,8 @@ offset_left = 100.0
 offset_top = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 60
 theme_override_font_sizes/font_size = 120
 text = "Home"
 
@@ -132,20 +136,89 @@ offset_bottom = -260.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="ScrollArea"]
+[node name="MainContainer" type="VBoxContainer" parent="ScrollArea"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="ScrollArea/MainContainer"]
 custom_minimum_size = Vector2(0, 1000)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("8_v73wf")
 
-[node name="DailyGoalsTitle" type="VBoxContainer" parent="ScrollArea/TextureRect"]
+[node name="GameContainer" type="VBoxContainer" parent="ScrollArea/MainContainer/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 30.0
+offset_right = -40.0
+offset_bottom = -210.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="DailyGoalsTitleContainer" type="VBoxContainer" parent="ScrollArea/MainContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 290.0
+offset_top = -150.0
+offset_right = -290.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="ScrollArea/MainContainer/TextureRect/DailyGoalsTitleContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 60
+text = "Daily Goals"
+horizontal_alignment = 1
+
+[node name="DailyGoalsContainer" type="VBoxContainer" parent="ScrollArea/MainContainer"]
+layout_mode = 2
+
+[node name="AddGoal" type="TextureRect" parent="ScrollArea/MainContainer/DailyGoalsContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+texture = ExtResource("9_qhtfg")
+
+[node name="Label" type="Label" parent="ScrollArea/MainContainer/DailyGoalsContainer/AddGoal"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 50.0
+offset_right = 616.0
+offset_bottom = 160.0
+theme_override_colors/font_outline_color = Color(0.281187, 0.281187, 0.281187, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 80
+text = "Add a Goal"
+
+[node name="TextureButton" type="TextureButton" parent="ScrollArea/MainContainer/DailyGoalsContainer/AddGoal"]
+custom_minimum_size = Vector2(135, 129)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -64.5
+offset_right = -45.0
+offset_bottom = 64.5
+grow_horizontal = 0
+grow_vertical = 2
+rotation = -6.28319
+texture_normal = ExtResource("10_dvpbc")
+stretch_mode = 0
+
+[node name="CompletedTasksContainer" type="VBoxContainer" parent="ScrollArea/MainContainer"]
+layout_mode = 2
+
 [node name="Navbar" parent="." instance=ExtResource("9_yorl5")]
 layout_mode = 1
-script = null

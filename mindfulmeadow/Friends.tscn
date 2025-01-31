@@ -1,0 +1,153 @@
+[gd_scene load_steps=11 format=3 uid="uid://cffc6g0mnklkx"]
+
+[ext_resource type="Texture2D" uid="uid://b2csiiae3207" path="res://assets/hud2.png" id="1_xcydq"]
+[ext_resource type="Texture2D" uid="uid://6dea1mjsj6lr" path="res://assets/Bar.png" id="2_ingla"]
+[ext_resource type="Texture2D" uid="uid://dqt4np14yqbm0" path="res://assets/Butts/HomeButt.png" id="3_613pj"]
+[ext_resource type="Texture2D" uid="uid://dp6bp33k85yjt" path="res://assets/Butts/ShopButt.png" id="4_t08pe"]
+[ext_resource type="Texture2D" uid="uid://blkyjipfv8uqc" path="res://assets/Butts/ClipButt.png" id="5_myunn"]
+[ext_resource type="Texture2D" uid="uid://b3foaq3bhv1o3" path="res://assets/Butts/StarButt.png" id="6_47vw5"]
+[ext_resource type="Texture2D" uid="uid://b2kgoyir06sdj" path="res://assets/Butts/HeartButt.png" id="7_4rdoo"]
+[ext_resource type="Texture2D" uid="uid://stfipv7cit6i" path="res://assets/middle.png" id="8_7f7ok"]
+[ext_resource type="PackedScene" uid="uid://cey7q2jvmo56w" path="res://navbar.tscn" id="9_h3xb7"]
+
+[sub_resource type="GDScript" id="GDScript_owrlr"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.8, 0.592157, 1)
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 1500.0
+grow_horizontal = 2
+texture = ExtResource("1_xcydq")
+
+[node name="TopBar" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 240.0
+grow_horizontal = 2
+texture = ExtResource("2_ingla")
+
+[node name="Label" type="Label" parent="TopBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 120
+text = "Friends"
+
+[node name="BottomBar" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -240.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_ingla")
+
+[node name="ButtonContainer" type="HBoxContainer" parent="BottomBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 35.0
+offset_right = -60.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="HomeButton" type="TextureButton" parent="BottomBar/ButtonContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_613pj")
+stretch_mode = 0
+
+[node name="ShopButton" type="TextureButton" parent="BottomBar/ButtonContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_t08pe")
+stretch_mode = 0
+
+[node name="QuestsButton" type="TextureButton" parent="BottomBar/ButtonContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_myunn")
+stretch_mode = 0
+
+[node name="ActivitiesButton" type="TextureButton" parent="BottomBar/ButtonContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_47vw5")
+stretch_mode = 0
+
+[node name="FriendsButton" type="TextureButton" parent="BottomBar/ButtonContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("7_4rdoo")
+stretch_mode = 0
+
+[node name="ScrollArea" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 240.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollArea"]
+custom_minimum_size = Vector2(0, 1000)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("8_7f7ok")
+
+[node name="DailyGoalsTitle" type="VBoxContainer" parent="ScrollArea/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Navbar" parent="." instance=ExtResource("9_h3xb7")]
+layout_mode = 1
+script = SubResource("GDScript_owrlr")

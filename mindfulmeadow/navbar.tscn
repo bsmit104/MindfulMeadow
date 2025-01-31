@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cey7q2jvmo56w"]
 
-[ext_resource type="Script" path="res://navbar.gd" id="1_8w1nv"]
 [ext_resource type="Texture2D" uid="uid://6dea1mjsj6lr" path="res://assets/Bar.png" id="1_hev8k"]
+[ext_resource type="Script" path="res://ButtonContainer.gd" id="2_i4ic7"]
 [ext_resource type="Texture2D" uid="uid://dqt4np14yqbm0" path="res://assets/Butts/HomeButt.png" id="2_kxqj0"]
 [ext_resource type="Texture2D" uid="uid://dp6bp33k85yjt" path="res://assets/Butts/ShopButt.png" id="3_vq63n"]
 [ext_resource type="Texture2D" uid="uid://blkyjipfv8uqc" path="res://assets/Butts/ClipButt.png" id="4_a2jsf"]
@@ -15,7 +15,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8w1nv")
 
 [node name="BottomBar" type="TextureRect" parent="."]
 layout_mode = 1
@@ -41,6 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
 alignment = 1
+script = ExtResource("2_i4ic7")
 
 [node name="HomeButton" type="TextureButton" parent="BottomBar/ButtonContainer"]
 custom_minimum_size = Vector2(180, 0)
